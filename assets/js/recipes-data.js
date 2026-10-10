@@ -122,7 +122,7 @@ const recipes = [
         prepTime: 20,
         difficulty: "easy",
         rating: 4.3,
-        image: "/assets/images/recipes/vegetable-stir-fry.jpg",
+        image: "assets/images/recipes/vegetable-stir-fry.jpg",
         description: "Colorful and nutritious vegetable stir fry with a savory soy-based sauce. Quick and healthy!",
         ingredients: [
             "2 tablespoons vegetable oil",
@@ -155,7 +155,7 @@ const recipes = [
         prepTime: 15,
         difficulty: "easy",
         rating: 4.4,
-        image: "/assets/images/recipes/french-toast.jpg",
+        image: "assets/images/recipes/french-toast.jpg",
         description: "Golden, custardy French toast made with thick bread slices. Perfect for a special breakfast.",
         ingredients: [
             "8 thick slices of bread",
@@ -183,7 +183,7 @@ const recipes = [
         prepTime: 25,
         difficulty: "medium",
         rating: 4.1,
-        image: "/assets/images/recipes/french-toast.jpg",
+        image: "assets/images/recipes/grilled-chicken-sandwich.jpg",
         description: "Juicy grilled chicken breast on a toasted bun with fresh vegetables and creamy avocado.",
         ingredients: [
             "4 chicken breasts",
@@ -214,7 +214,7 @@ const recipes = [
         prepTime: 30,
         difficulty: "medium",
         rating: 4.6,
-        image: "/assets/images/recipes/beef-tacos.jpg",
+        image: "assets/images/recipes/beef-tacos.jpg",
         description: "Flavorful seasoned ground beef tacos with fresh toppings and warm tortillas.",
         ingredients: [
             "1 lb ground beef",
@@ -248,7 +248,7 @@ const recipes = [
         prepTime: 60,
         difficulty: "hard",
         rating: 4.9,
-        image: "/assets/images/recipes/apple-pie.jpg",
+        image: "assets/images/recipes/apple-pie.jpg",
         description: "Classic homemade apple pie with flaky crust and cinnamon-spiced apple filling.",
         ingredients: [
             "6-8 large apples, peeled and sliced",
@@ -280,7 +280,7 @@ const recipes = [
         prepTime: 35,
         difficulty: "medium",
         rating: 4.5,
-        image: "/assets/images/recipes/quinoa-buddha-bowl.jpg",
+        image: "assets/images/recipes/quinoa-buddha-bowl.jpg",
         description: "Nutritious and colorful bowl with quinoa, roasted vegetables, and tahini dressing.",
         ingredients: [
             "1 cup quinoa",
