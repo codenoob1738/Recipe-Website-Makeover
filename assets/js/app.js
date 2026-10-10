@@ -6,7 +6,7 @@ class RecipeApp {
         this.currentSort = 'name';
         this.searchTerm = '';
         this.currentSection = 'home';
-        
+
         this.init();
     }
 
@@ -79,7 +79,7 @@ class RecipeApp {
         document.querySelectorAll('.section').forEach(section => {
             section.classList.remove('active');
         });
-        
+
         document.getElementById(sectionName).classList.add('active');
         this.currentSection = sectionName;
 
@@ -96,6 +96,8 @@ class RecipeApp {
     }
 
     getFilteredRecipes() {
+        this.updateRecipeHeading();
+
         let filtered = this.recipes;
 
         if (this.currentFilter !== 'all') {
@@ -103,10 +105,10 @@ class RecipeApp {
         }
 
         if (this.searchTerm) {
-            filtered = filtered.filter(recipe => 
+            filtered = filtered.filter(recipe =>
                 recipe.name.toLowerCase().includes(this.searchTerm) ||
                 recipe.description.toLowerCase().includes(this.searchTerm) ||
-                recipe.ingredients.some(ingredient => 
+                recipe.ingredients.some(ingredient =>
                     ingredient.toLowerCase().includes(this.searchTerm)
                 )
             );
@@ -151,7 +153,7 @@ class RecipeApp {
     }
 
     renderFavorites() {
-        const favoriteRecipes = this.recipes.filter(recipe => 
+        const favoriteRecipes = this.recipes.filter(recipe =>
             this.favorites.includes(recipe.id)
         );
         const grid = document.getElementById('favorites-grid');
@@ -172,7 +174,7 @@ class RecipeApp {
     createRecipeCard(recipe) {
         const isFavorited = this.favorites.includes(recipe.id);
         const stars = '★'.repeat(Math.floor(recipe.rating)) + '☆'.repeat(5 - Math.floor(recipe.rating));
-        
+
         return `
             <div class="recipe-card" data-id="${recipe.id}">
                 <img src="${recipe.image}" alt="${recipe.name}" class="recipe-image">
@@ -216,7 +218,7 @@ class RecipeApp {
 
     toggleFavorite(recipeId) {
         const index = this.favorites.indexOf(recipeId);
-        
+
         if (index > -1) {
             this.favorites.splice(index, 1);
         } else {
@@ -225,7 +227,7 @@ class RecipeApp {
 
         localStorage.setItem('favorites', JSON.stringify(this.favorites));
         this.updateFavoritesCount();
-        
+
         if (this.currentSection === 'recipes') {
             this.renderRecipes();
         } else if (this.currentSection === 'favorites') {
@@ -294,6 +296,28 @@ class RecipeApp {
     toggleClearButton() {
         const clearBtn = document.getElementById('clear-search');
         clearBtn.style.display = this.searchTerm ? 'inline-block' : 'none';
+    }
+
+    updateRecipeHeading() {
+        const heading = document.getElementById('recipes-title');
+
+        if (this.currentFilter === 'all') {
+            heading.textContent = 'All Recipes';
+        } else {
+            if (this.currentFilter === 'breakfast') {
+                heading.textContent = 'Start Your Morning With Something Worth Waking Up For';
+            } else if (this.currentFilter === 'lunch') {
+                heading.textContent = 'Lunch Time Favorites';
+            } else if (this.currentFilter === 'dinner') {
+                heading.textContent = 'End Your Day With Something Fulfilling';
+            } else if (this.currentFilter === 'dessert') {
+                heading.textContent = 'Go Off Into The Sunset With Something Sweet';
+            } else if (this.currentFilter === 'vegetarian') {
+                heading.textContent = 'Vegan? No Problem!';
+            } else {
+                heading.textContent = 'All Recipes';
+            }
+        }
     }
 }
 
